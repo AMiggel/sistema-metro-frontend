@@ -1,0 +1,38 @@
+
+
+
+<button type="button" class="btn my-3 btn-primary btn-default" [routerLink]="['/usuarios/form']"> Crear cliente</button>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>nombre</th>
+      <th>apellido</th>
+      <th>Identificación</th>
+      <th>Tipo de identificación</th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.id}}</td>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.identificacion}}</td>
+      <td>{{usuario.tipoIdentificacion}}</td>
+      <td>{{usuario.civica.saldo}}</td>
+      <td>{{usuario.tipoPoblacion}}</td>
+      <td>
+        <button type="button" name="editar" class=" btn btn-primary btn-sm" [routerLink]="['/usuarios/form', usuario.id]">editar</button>
+      </td>
+      <td>
+          <button type="button" name="eliminar" (click)="delete(usuario)"  class="btn btn-danger btn-sm">Eliminar</button>
+      </td>
+      <td>
+        <button type="button" name="recargar" [routerLink]="['/usuarios/detalle/',usuario.civica.id]"   class="btn btn-danger btn-sm">Recargar</button>
+    </td>
+    </tr>
+
+    
+  </tbody>
+</table>

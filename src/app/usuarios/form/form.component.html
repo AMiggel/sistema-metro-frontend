@@ -1,0 +1,62 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">{{titulo}}</div>
+  <div class="card-body">
+
+    <form>
+
+      <div class="form-group row">
+        <label for="nombre" class="col-form-label col-sm-3">nombre</label>
+        <div class="col-sm-6">
+          <input type="text" name="nombre" class="form-control" [(ngModel)]="usuario.nombre">
+        </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="apellido" class="col-form-label col-sm-3">Apellido</label>
+          <div class="col-sm-6">
+            <input type="text" name="apellido" class="form-control" [(ngModel)]="usuario.apellido">
+          </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="identificacion" class="col-form-label col-sm-3"> Número de identificación</label>
+          <div class="col-sm-6">
+            <input type="number" name="identificacion" class="form-control" [(ngModel)]="usuario.identificacion" [readonly]="usuario.id">
+          </div>
+      </div>
+
+      <div class="form-group row">
+           <label for="tipoIdentificacion" class="col-form-label col-sm-3">Tipo de identificación</label>
+           <div class="col-sm-6">
+             <input type="text" name="tipoIdentificacion" class="form-control" [(ngModel)]="usuario.tipoIdentificacion" [readonly]="usuario.id">
+           </div>
+      </div>
+
+      <div class="form-group row">
+          <label for="edad" class="col-form-label col-sm-3">Edad</label>
+          <div class="col-sm-6">
+            <input type="number" name="edad" class="form-control" [(ngModel)]="usuario.edad">
+          </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="tipoPoblación" class="col-form-label col-sm-3">Tipo de Población</label>
+        <div class="col-sm-6">
+            <input type="text" name="tipoPoblacion" class="form-control" [(ngModel)]="usuario.tipoPoblacion">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button class="btn-primary" role="button" (click)='create()' *ngIf="!usuario.id else elseBlock">Crear</button>
+
+          <ng-template #elseBlock>
+              <button class="btn-primary" role="button" (click)="update()">Editar</button>
+          </ng-template>
+         
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
